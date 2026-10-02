@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tool — OpenUtility</title><meta name="description" content="OpenUtility browser-first developer tool."><meta name="theme-color" content="#07090d">
+<link rel="icon" type="image/png" href="./assets/images/openutility-logo.png">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Outfit:wght@600;700;800&display=swap">
+<style>
+:root{--bg:#07090d;--panel:#0d131c;--panel2:#111722;--border:rgba(255,255,255,.08);--text:#f4f7fb;--muted:#8b97a9;--blue:#4a9ee8;--cyan:#38bdf8;--green:#3dcc8e;--yellow:#fbbf24;--display:Outfit,sans-serif;--sans:Inter,sans-serif;--mono:"JetBrains Mono",monospace}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0%,rgba(74,158,232,.08),transparent 32%),radial-gradient(circle at 85% 8%,rgba(139,92,246,.07),transparent 28%),var(--bg);color:var(--text);font:14px/1.6 var(--sans)}a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 32px));margin:auto}nav{position:sticky;top:0;z-index:30;border-bottom:1px solid var(--border);background:rgba(7,9,13,.86);backdrop-filter:blur(18px)}.nav{height:66px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font:700 19px var(--display)}.brand img{width:31px;height:31px;border-radius:9px}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:12px}.navlinks a:hover{color:var(--text)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:9px 12px;border:1px solid var(--border);border-radius:8px;background:rgba(255,255,255,.025);color:var(--text);font-size:11px;font-weight:600;cursor:pointer}.btn:hover{border-color:rgba(74,158,232,.35)}.btn.primary{background:var(--blue);border-color:transparent;color:#06101b}.hero{padding:55px 0 22px}.crumb{color:var(--muted);font:10px var(--mono);text-transform:uppercase;letter-spacing:.08em}.eyebrow{display:inline-flex;margin-top:14px;padding:5px 8px;border:1px solid rgba(56,189,248,.18);border-radius:999px;color:var(--cyan);font:10px var(--mono)}h1{margin:12px 0 5px;font:800 clamp(38px,6vw,62px)/1 var(--display);letter-spacing:-.045em}#description{max-width:760px;color:var(--muted);font-size:15px}.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.pill{padding:5px 8px;border:1px solid var(--border);border-radius:999px;color:var(--muted);font:9px var(--mono)}.pill.local{color:var(--green);border-color:rgba(61,204,142,.2);background:rgba(61,204,142,.04)}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}.workspace{margin:22px 0 70px;padding:12px;border:1px solid var(--border);border-radius:16px;background:linear-gradient(145deg,rgba(17,23,34,.86),rgba(10,14,21,.72));box-shadow:0 25px 70px rgba(0,0,0,.3)}iframe{display:block;width:100%;min-height:620px;border:0;border-radius:10px;background:#07090d}.below{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-bottom:70px}.card{padding:20px;border:1px solid var(--border);border-radius:13px;background:rgba(255,255,255,.018)}.card h2{margin:0 0 7px;font:700 20px var(--display)}.card p{margin:0;color:var(--muted);font-size:12px}.related{display:grid;gap:8px;margin-top:12px}.related a{padding:10px 11px;border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:11px}.related a:hover{border-color:rgba(74,158,232,.3);color:var(--text)}footer{border-top:1px solid var(--border);padding:28px 0;color:var(--muted);font-size:11px}@media(max-width:800px){.navlinks{display:none}.below{grid-template-columns:1fr}iframe{min-height:700px}.hero{padding-top:38px}}
+</style></head>
+<body>
+<nav><div class="container nav"><a class="brand" href="./"><img src="./assets/images/openutility-logo.png" alt="OpenUtility"><span>OpenUtility</span></a><div class="navlinks"><a href="./">Tools</a><a href="./docs.html">Docs</a><a href="./open-source.html">Open Source</a><a href="./discord.html">Discord</a></div><a class="btn" href="./docs.html">Developer reference</a></div></nav>
+<main class="container"><section class="hero"><div class="crumb">OpenUtility / Tools / <span id="category">Developer utility</span></div><span class="eyebrow" id="eyebrow">Browser-first utility</span><h1 id="title">OpenUtility Tool</h1><p id="description">Fast, private, client-side utility.</p><div class="meta"><span class="pill local">● Local processing</span><span class="pill">No account required</span><span class="pill">Offline-ready</span></div><div class="actions"><a class="btn" href="./">← All tools</a><a class="btn" id="docsLink" href="./docs.html">Read docs</a><button class="btn" id="share" type="button">Copy share link</button><a class="btn primary" id="openRaw" href="#workspace">Open workspace ↓</a></div></section>
+<section class="workspace" id="workspace"><iframe id="toolFrame" title="OpenUtility tool"></iframe></section>
+<section class="below"><article class="card"><h2>About this tool</h2><p id="about">This tool runs in your browser where supported. Inputs are processed by the embedded utility and are not sent to OpenUtility by this detail page.</p></article><aside class="card"><h2>Related tools</h2><div id="related" class="related"></div></aside></section></main>
+<footer><div class="container">OpenUtility · Fast, private, browser-first developer utilities.</div></footer>
+<script>
+const tools={
+'json-formatter':['JSON Formatter','JSON','Format and pretty-print JSON locally.',['json-minifier','csv-json','yaml-json']],
+'json-minifier':['JSON Minifier','JSON','Minify JSON without uploading it.',['json-formatter','csv-json']],
+'csv-json':['CSV → JSON','Data','Convert CSV data to JSON locally.',['json-formatter','yaml-json']],
+'xml-formatter':['XML Formatter','Data','Format XML documents in the browser.',['yaml-json','json-formatter']],
+'yaml-json':['YAML ↔ JSON','Data','Convert YAML and JSON locally.',['json-formatter','csv-json']],
+'base64':['Base64','Encoding','Encode and decode Base64 strings.',['url-encoder','html-entities']],
+'url-encoder':['URL Encoder','Web & URL','Encode and decode URL components.',['url-parser','base64']],
+'jwt-decoder':['JWT Decoder','Security','Decode JWT headers and payloads locally.',['base64','sha256']],
+'html-entities':['HTML Entities','Web & URL','Encode and decode HTML entities.',['base64','url-encoder']],
+'uuid':['UUID Generator','Generators','Generate UUID v4 values.',['password','qr']],
+'password':['Password Generator','Security','Generate random passwords locally.',['uuid','sha256']],
+'sha256':['SHA-256','Security','Create SHA-256 hashes in your browser.',['base64','password']],
+'qr':['QR Code','Generators','Generate QR codes from text or URLs.',['uuid','url-encoder']],
+'color':['Color Converter','Web & URL','Convert HEX, RGB and HSL colors.',['timestamp','url-parser']],
+'timestamp':['Timestamp','Web & URL','Convert Unix timestamps and dates.',['url-parser','color']],
+'url-parser':['URL Parser','Web & URL','Inspect URL components and query parameters.',['url-encoder','timestamp']],
+'case':['Text Case Converter','Text','Convert text between common cases.',['word-counter','text-diff']],
+'word-counter':['Word Counter','Text','Count words, characters and lines.',['case','text-diff']],
+'lorem':['Lorem Ipsum','Text','Generate placeholder text quickly.',['word-counter','markdown']],
+'text-diff':['Text Diff','Text','Compare two text blocks line by line.',['case','word-counter']],
+'regex':['Regex Tester','Code','Test regular expressions locally.',['sql','markdown']],
+'sql':['SQL Formatter','Code','Format common SQL queries.',['regex','json-formatter']],
+'markdown':['Markdown Preview','Code','Preview Markdown locally.',['regex','text-diff']]
+};
+const id=new URLSearchParams(location.search).get('tool')||'json-formatter';const t=tools[id]||tools['json-formatter'];
+document.title=t[0]+' — OpenUtility';document.getElementById('title').textContent=t[0];document.getElementById('category').textContent=t[1];document.getElementById('eyebrow').textContent=t[1]+' utility';document.getElementById('description').textContent=t[2];document.getElementById('about').textContent=t[2]+' Designed for focused, browser-first workflows with no account required. Use the embedded workspace below to run the tool, then copy or download the result from the tool interface.';document.getElementById('toolFrame').src='./tools/'+id+'.html';
+const rel=document.getElementById('related');rel.innerHTML=t[3].filter(x=>tools[x]).map(x=>`<a href="./tool.html?tool=${x}">${tools[x][0]} <span>→</span></a>`).join('');
+document.getElementById('share').addEventListener('click',async()=>{const url=new URL(location.href);url.search='';url.searchParams.set('tool',id);try{await navigator.clipboard.writeText(url.toString());document.getElementById('share').textContent='✓ Link copied'}catch{prompt('Copy this link:',url.toString())}setTimeout(()=>document.getElementById('share').textContent='Copy share link',1800)});
+document.getElementById('docsLink').href='./docs.html?tool='+id;
+</script></body></html>
