@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://openutility.info.gf/</loc></url>
+  <url><loc>https://openutility.info.gf/docs/</loc></url>
+  <url><loc>https://openutility.info.gf/tool.html</loc></url>
   <url><loc>https://openutility.info.gf/tools/json-formatter.html</loc></url>
   <url><loc>https://openutility.info.gf/tools/json-minifier.html</loc></url>
   <url><loc>https://openutility.info.gf/tools/csv-json.html</loc></url>
